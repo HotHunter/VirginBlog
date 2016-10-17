@@ -1,0 +1,65 @@
+/*-------------base-------------*/
+body{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  width: 100%;
+  height: 100px;
+  background-color: #e0e0e0;
+}
+
+#list_body{
+  width: 60%;
+  height: 1000px;
+  background-color: #bfbfbf;
+  margin: 0 auto;
+}
+
+footer{
+  width: 100%;
+  height: 300px;
+  background-color: #eeeeee;
+  text-align: center;
+}
+
+p{
+  margin: 0;
+}
+
+/*--------------menu-------------*/
+#menu {
+  width: 60%;
+  height: 100px;
+  margin: 0 auto;
+  background-color: #9e9e9e;
+  text-align: center;
+}
+
+/*----------------article--------------*/
+
+article{
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #04819E;
+}
+
+#ar_title {
+  width: 100%;
+  height: 80px;
+  background-color: #60B9CE;
+}
+
+#ar_info {
+  width: 100%;
+  height: 40px;
+  background-color: #015367 ;
+}
+
+#ar_content{
+  width: 100%;
+  height: 180px;
+  background-color: #034569 ;
+}
