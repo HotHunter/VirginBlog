@@ -11,6 +11,7 @@ $(window).load(function() {
   var pageno = 1,
       pagesize = 10,
       url = '';
+
   listAjax(url,pageno,pagesize);
 })(jQuery);
 
@@ -20,24 +21,34 @@ $(window).load(function() {
 //   ];
 
 //收到返回数据后初始化文章列表
+//data.res
+//data.paging
 function initList(data){
-      for (var i = 0; len = data.length, i < len; i++) {
+    for (var i = 0; len = data.res.length, i < len; i++) {
       var article = 
-          "<article><div id='ar_title'>"+data[i].title+"</div><div id='ar_info'>"+data[i].info+"</div><div id='ar_content'>"+data[i].content+"</div></article>";
+          "<article><div id='ar_title'>"+data.res[i].title+"</div><div id='ar_info'>"+data.res[i].info+"</div><div id='ar_content'>"+data.res[i].content+"</div></article>";
 
       $("#list_body").append(article);
     }
+    //同时初始化分页
+    var pageno = " <div id='paging' style='text-align:center'><a href="">上一页</a>&nbsp&nbsp"+
+      for(var i = 1;i<=data.paging.length,i++){
+        +"<a>"data.paging[i]"</a>&nbsp"+
+      }
+    +"&nbsp<a href="">下一页</a></div>"
 }
 
-//定义公共ajax方法
+//初始化文章列表ajax方法
 function listAjax(url,pageno,pagesize){
   var param = {};
   param.pageno = pageno;
   param.pagesize = pagesize;
+  // param.startid = pageno * pagesize;
+  // param.endid = pageno * pagesize + 9;
   $.ajax({
     type: 'POST',
     url : url,
-    data  : json.stringify(data),
+    data  : json.stringify(param),
     dateType : 'json'
     success: function(data , textStatus){
       initList(data);
