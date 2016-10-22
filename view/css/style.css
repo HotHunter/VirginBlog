@@ -72,3 +72,31 @@ article{
   margin: 0 auto;
   top: auto; left: 0; bottom: 0; right: 0;
 }
+
+/*-------------edit-------------*/
+#edit_div {
+  width: 60%;
+  height: 1000px;
+  background-color: #bfbfbf;
+  margin: 0 auto;
+}
+
+#edit_body {
+  width: 70%;
+  height: 100%;
+  background-color: #bfbfbf;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#edit_title {
+  width: 300px;
+}
+
+#edit_content {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  height: 70%;
+}

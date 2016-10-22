@@ -8,11 +8,13 @@
 ;(function($){
 
 $(window).load(function() {
-  var pageno = 1,
+  var pageno = getPageCookie(),
       pagesize = 10,
       url = '';
 
   listAjax(url,pageno,pagesize);
+
+  
 })(jQuery);
 
 // var data = [
@@ -31,11 +33,14 @@ function initList(data){
       $("#list_body").append(article);
     }
     //同时初始化分页
-    var pageno = " <div id='paging' style='text-align:center'><a href="">上一页</a>&nbsp&nbsp"+
-      for(var i = 1;i<=data.paging.length,i++){
-        +"<a>"data.paging[i]"</a>&nbsp"+
+    var pageno = "<div id='paging' style='text-align:center'><a onclick='pageChange(up)'>上一页</a>&nbsp&nbsp"+
+      for(var i = 1;i<=data.paging,i++){
+        +"<a onclick='pageChange("+data.paging[i]+")'>"data.paging[i]"</a>&nbsp"+
       }
-    +"&nbsp<a href="">下一页</a></div>"
+    +"&nbsp<a onclick='pageChange(down)'>下一页</a></div>";
+
+    $("#list_body").append(pageno);
+    setPageCookie(date.paging);
 }
 
 //初始化文章列表ajax方法
@@ -59,3 +64,41 @@ function listAjax(url,pageno,pagesize){
   })
 }
 
+//当前页数传入传出cookie
+function setPageCookie(pageno){
+  document.cookie = "pageno=" + pageno;
+}
+function getPageCookie(){
+  var getPageno = document.cookie;
+  if(getPageno == ""){
+    getPageno = getPageno.split('=');
+    return getPageno[1];
+  }
+  else{
+    return 1;
+  }
+}
+
+function pageChange(updown){
+  pageChangeDo(url,getPageCookie(),pagesize,updown)
+}
+
+//上一页下一页
+function pageChangeDo(url,pageno,pagesize,updown){
+  //清除页面article元素
+  cleanArticle();
+  //若updown为字符串up&down，则分别跳转上一页下一页
+  //若传参为数字，则为要跳转的具体页
+  if(updown == 'up'){
+    listAjax(url,pageno-1,pagesize);
+  }else if(updown == 'down'){
+    listAjax(url,pageno+1,pagesize);
+  }else if(typeof updown == 'number'){
+    listAjax(url,updown,pagesize);
+  }
+}
+
+//清除页面文章元素
+function cleanArticle(){
+  $("article").remove();
+}
