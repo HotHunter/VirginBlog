@@ -1,0 +1,38 @@
+<html>
+<head>
+ <script type="text/javascript" src="../js/thirdparty/jquery.js"></script><script type="text/javascript">
+$(document).ready(function(){
+  $("button").click(function(){
+    $.ajax({
+    	url: './test.js',
+    	type: 'POST',
+    	dataType: 'json',
+    	data: {name: 'ght'},
+    })
+    .done(function() {
+    	console.log("success");
+    })
+    .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+		 console.log(XMLHttpRequest.status);
+		 console.log(XMLHttpRequest.readyState);
+		 console.log(textStatus);
+		 console.log(XMLHttpRequest);
+    })
+    .always(function() {
+    	console.log("complete");
+    	//location.href ="test2.html";
+    	
+    })
+    .success(function (data){
+    	alert(data);	
+    });
+    
+  });
+});
+</script>
+</head>
+<body>
+
+<button>跳转</button>
+</body>
+</html>

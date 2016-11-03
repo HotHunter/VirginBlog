@@ -10,7 +10,7 @@
 $(window).load(function() {
   var pageno = getPageCookie(),
       pagesize = 10,
-      url = '';
+      url = 'edit.js/change';
 
   listAjax(url,pageno,pagesize);
 
