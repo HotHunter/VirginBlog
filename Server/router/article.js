@@ -12,6 +12,13 @@ router.get('/', function (req, res, next) {
     });
 });
 
+// 获取指定id的文章
+router.get('/:id', function (req, res, next) {
+    Article.findById(req.params.id, function (err, article) {
+        res.send(article);
+    });
+});
+
 // 新增文章
 router.post('/', bodyParser.json(), function (req, res, next) {
     var newArticle = new Article();
