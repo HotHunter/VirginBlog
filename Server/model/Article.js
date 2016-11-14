@@ -4,19 +4,28 @@
 var mongoose = require('mongoose');
 
 var ArticleSchema = new mongoose.Schema({
-    title:String,
-    create_date:{
-        type:Date,
-        default:new Date()
+    title: {
+        type: String,
+        trim: true,
+        required: true
     },
-    update_date:{
-        type:Date,
-        default:new Date()
+    content: {
+        type: String,
+        required: true
     },
-    content:String,
-    author:{
-        type:String,
-        default:'unknown'
+    author: {
+        type: String,
+        default: 'unknown'
+    },
+    meta: {
+        createAt: {
+            type: Date,
+            default: Date.now()
+        },
+        updateAt: {
+            type: Date,
+            default: Date.now()
+        }
     }
 });
 

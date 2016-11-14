@@ -23,4 +23,4 @@ server.listen(port);
     路由
  */
 // server.use('/api', auth);
-server.use('/api/article', articleRouter);
+server.use('/api/articles', articleRouter);
