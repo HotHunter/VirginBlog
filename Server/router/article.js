@@ -5,6 +5,9 @@ var router = require('express').Router();
 var Article = require('../model/Article');
 var bodyParser = require('body-parser');
 
+/*
+    查 Select
+ */
 // 列出所有文章
 router.get('/', function (req, res, next) {
     Article.find(function (err, articles) {
@@ -19,6 +22,9 @@ router.get('/:id', function (req, res, next) {
     });
 });
 
+/*
+    增 Create
+ */
 // 新增文章
 router.post('/', bodyParser.json(), function (req, res, next) {
     var newArticle = new Article();
@@ -37,6 +43,9 @@ router.post('/', bodyParser.json(), function (req, res, next) {
     });
 });
 
+/*
+    改 Update
+ */
 // 修改文章
 router.put('/:id', bodyParser.json(), function (req, res, next) {
     Article.update(
