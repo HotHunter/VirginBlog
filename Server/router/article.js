@@ -8,6 +8,15 @@ var bodyParser = require('body-parser');
 /*
     查 Select
  */
+//获取文章总数
+router.get('/count', function (req, res) {
+    Article.count({}, function (err, count) {
+        if (err){
+            return res.send(err);
+        }
+        res.json({'count':count});
+    })
+});
 // 列出所有文章
 router.get('/', function (req, res) {
     Article.find(function (err, articles) {
