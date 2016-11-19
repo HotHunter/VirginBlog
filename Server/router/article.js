@@ -8,14 +8,14 @@ var bodyParser = require('body-parser');
 // 列出所有文章
 router.get('/', function (req, res, next) {
     Article.find(function (err, articles) {
-        res.send(articles);
+        res.json(articles);
     });
 });
 
 // 获取指定id的文章
 router.get('/:id', function (req, res, next) {
     Article.findById(req.params.id, function (err, article) {
-        res.send(article);
+        res.json(article);
     });
 });
 
@@ -35,5 +35,18 @@ router.post('/', bodyParser.json(), function (req, res, next) {
             res.send('ok' + article.title);
         }
     });
+});
+
+// 修改文章
+router.put('/:id', bodyParser.json(), function (req, res, next) {
+    Article.update(
+        {_id:req.params.id}, {$set:{title:req.body.title, content:req.body.content, author:req.body.author}},
+        function (err, raw) {
+            if (err){
+                res.send('err');
+            }
+            res.json(raw);
+        }
+    );
 });
 module.exports = router;

@@ -29,6 +29,11 @@ var ArticleSchema = new mongoose.Schema({
     }
 });
 
-var ArticleModel = mongoose.model('Article', ArticleSchema);
+ArticleSchema.pre('update', function () {
+    console.log('dddd');
+    this.update({}, {$set: {'meta.updateAt': new Date()}});
+});
 
+
+var ArticleModel = mongoose.model('Article', ArticleSchema);
 module.exports = ArticleModel;
