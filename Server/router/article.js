@@ -74,6 +74,10 @@ router.put('/:id', bodyParser.json(), function (req, res) {
 /*
     删 Delete
  */
-
+router.delete('/:id', function (req, res) {
+    Article.findByIdAndRemove(req.params.id, function (err, removedArticle) {
+        res.json(removedArticle);
+    });
+});
 
 module.exports = router;
