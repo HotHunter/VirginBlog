@@ -6,7 +6,7 @@ var Article = require('../model/Article');
 var bodyParser = require('body-parser');
 
 /*
-    查 Select
+    查 Retrieve
  */
 //获取文章总数
 router.get('/count', function (req, res) {
@@ -17,9 +17,12 @@ router.get('/count', function (req, res) {
         res.json({'count':count});
     })
 });
-// 列出所有文章
-router.get('/', function (req, res) {
-    Article.find(function (err, articles) {
+// 列出文章
+router.get('/',bodyParser.json(), function (req, res) {
+    var start = req.body.start || 0;
+    var quantity = req.body.quantity || 20;
+
+    Article.find({}, null, {skip:start, limit:quantity}, function (err, articles) {
         res.json(articles);
     });
 });
@@ -67,4 +70,10 @@ router.put('/:id', bodyParser.json(), function (req, res) {
         }
     );
 });
+
+/*
+    删 Delete
+ */
+
+
 module.exports = router;
