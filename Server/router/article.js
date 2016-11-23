@@ -18,11 +18,14 @@ router.get('/count', function (req, res) {
     })
 });
 // 列出文章
-router.get('/',bodyParser.json(), function (req, res) {
-    var start = req.body.start || 0;
-    var quantity = req.body.quantity || 20;
-
+router.get('/', function (req, res) {
+    var start = Number(req.query.start) || 0;
+    var quantity = Number(req.query.quantity) || 20;
+    
     Article.find({}, null, {skip:start, limit:quantity}, function (err, articles) {
+        if (err){
+            res.send(err);
+        }
         res.json(articles);
     });
 });
