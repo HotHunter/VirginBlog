@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/virgin_blog');
     服务器
  */
 // 设置监听端口
-var port = process.env.PORT || 1900;
+var port = process.env.PORT || 1994;
 // 启动服务器
 var server = express();
 server.listen(port);
