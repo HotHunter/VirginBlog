@@ -17,7 +17,9 @@ mongoose.connect('mongodb://localhost/virgin_blog');
 var port = process.env.PORT || 1994;
 // 启动服务器
 var server = express();
-server.listen(port);
+server.listen(port, function () {
+    console.log('Server is runing at port %d', port);
+});
 
 /*
     路由
