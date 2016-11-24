@@ -30,7 +30,6 @@ var ArticleSchema = new mongoose.Schema({
 });
 
 ArticleSchema.pre('update', function () {
-    console.log('dddd');
     this.update({}, {$set: {'meta.updateAt': new Date()}});
 });
 
