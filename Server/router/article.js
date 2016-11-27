@@ -66,8 +66,18 @@ router.post('/', bodyParser.json(), function (req, res, next) {
  */
 // 修改文章
 router.put('/:id', bodyParser.json(), function (req, res, next) {
+    var keysToSet = {};
+    if (req.body.title){
+        keysToSet.title = req.body.title;
+    }
+    if (req.body.content){
+        keysToSet.content = req.body.content;
+    }
+    if (req.body.author){
+        keysToSet.author = req.body.author;
+    }
     Article.update(
-        {_id: req.params.id}, {$set: {title: req.body.title, content: req.body.content, author: req.body.author}},
+        {_id: req.params.id}, {$set: keysToSet},
         function (err, raw) {
             if (err) {
                 return next(err);
