@@ -47,3 +47,5 @@
 
 ## 错误处理
 - 服务执行失败将返回状态码403，并在响应体中附上错误信息。
+
+##PostMan请求包：[RESTful API Request.postman_collection](../RESTful API Request.postman_collection)
