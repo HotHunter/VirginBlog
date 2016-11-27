@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "VirginBlog",
+		"_postman_id": "e0ea695c-b140-275c-977f-6e02c58232d3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "列出文章",
+			"request": {
+				"url": "45.76.212.189:1994/api/articles?start=0&quantity=10",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"_id\": \"5810aae0aad3e518664d9b31\",\n  \"content\": \"this is content \",\n  \"title\": \"this is syy\",\n  \"__v\": 1,\n  \"meta\": {\n    \"updateAt\": \"2016-10-26T13:08:00.000Z\",\n    \"createAt\": \"2016-10-26T13:08:00.000Z\"\n  },\n  \"author\": \"erum\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "删除指定id的文章",
+			"request": {
+				"url": "45.76.212.189:1994/api/articles/<文章id>",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"_id\": \"5810aae0aad3e518664d9b31\",\n  \"content\": \"this is content \",\n  \"title\": \"this is syy\",\n  \"__v\": 1,\n  \"meta\": {\n    \"updateAt\": \"2016-10-26T13:08:00.000Z\",\n    \"createAt\": \"2016-10-26T13:08:00.000Z\"\n  },\n  \"author\": \"erum\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "新增文章",
+			"request": {
+				"url": "45.76.212.189:1994/api/articles",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"testTest1\",\n  \"content\": \"test content \",\n  \"author\": \"erum\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "获得文章总数",
+			"request": {
+				"url": "45.76.212.189:1994/api/articles/count",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"_id\": \"5810aae0aad3e518664d9b31\",\n  \"content\": \"this is content \",\n  \"title\": \"this is syy\",\n  \"__v\": 1,\n  \"meta\": {\n    \"updateAt\": \"2016-10-26T13:08:00.000Z\",\n    \"createAt\": \"2016-10-26T13:08:00.000Z\"\n  },\n  \"author\": \"erum\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "修改文章",
+			"request": {
+				"url": "45.76.212.189:1994/api/articles/<文章 id>",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"修改了标题\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
