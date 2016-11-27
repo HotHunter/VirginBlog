@@ -4,7 +4,7 @@
         
         Request:
             Method: Post
-            URI: articles/
+            URI: api/articles/
             请求体: json格式的文章
 
 ## 删 Delete
@@ -12,14 +12,14 @@
         
         Request: 
             Method: Delete
-            URI: articles/<要删除的文章id>
+            URI: api/articles/<要删除的文章id>
 
 ## 改 Update
 - 更新文章
 
         Request:
             Method: Put
-            URI: articles/<要修改的文章id>
+            URI: api/articles/<要修改的文章id>
             请求体: json格式的文章
 
 ## 查 Retrieve
@@ -27,7 +27,7 @@
         
         Request:
             Method: Get
-            URI: articles/count
+            URI: api/articles/count
 
         Response:
             响应格式: json
@@ -37,6 +37,7 @@
         
         Request:
             Method: Get
+            URI: api/articles
             参数:
                 start: 起始文章，默认从0开始
                 quantity: 从起始位置获取多少篇，，默认20
